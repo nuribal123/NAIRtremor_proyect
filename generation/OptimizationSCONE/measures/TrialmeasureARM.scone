@@ -1,0 +1,6 @@
+EffortMeasure {
+		name = Effort
+		weight = 0.01
+		measure_type = Wang2012
+}
+

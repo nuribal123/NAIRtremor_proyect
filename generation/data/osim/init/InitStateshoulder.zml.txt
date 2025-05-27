@@ -1,0 +1,5 @@
+values {
+	shoulder_rot = 0.90
+}
+velocities {
+}

@@ -1,0 +1,13 @@
+ModelOpenSim4 {
+	model_file = osim/MoBL_ARMS_module2_4_allmusclesLOCKparaOS51dof.osim
+
+	# Set initial state
+	#state_init_file = InitStateGait10.zml
+	fixed_control_step_size = 0.005
+	initial_equilibration_activation = 0.05
+
+	ScriptController {
+        script_file = NewMatsuoka_3.lua
+    }
+
+}

@@ -1,0 +1,38 @@
+CmaOptimizer {
+	signature_prefix = DATE_TIME
+	max_generations = 100
+	
+	SimulationObjective {
+		max_duration = 8
+		
+		ModelOpenSim4 {
+			model_file = D:/ingenieriabiomedica/CSICtesis/SegundaPrueba/MoBL_ARMS_module2_4_allmusclesLOCKparaOS5.osim
+			state_init_file = init/InitStateshoulder.zml
+			fixed_control_step_size = 0.005
+		}
+		
+		
+		ScriptController {
+			#script_file = C:\Users\balba\OneDrive\Documentos\SCONE\Tutorials\controllers\NewMatsuoka3.lua
+			#script_file = C:\Users\balba\OneDrive\Documentos\SCONE\Tutorials\controllers\IaFibersAjustando.lua
+			script_file = C:\Users\balba\OneDrive\Documentos\SCONE\Tutorials\controllers\NewMatsuoka4_templatetry.lua
+		}
+		
+		
+		CompositeMeasure {
+			# Medida personalizada (por ejemplo, mantener movimiento)
+			ScriptMeasure {
+				script_file = C:\Users\balba\OneDrive\Documentos\SCONE\Tutorials\controllers\ObjectiveMaintain.lua
+				weight = 0.8
+				minimize = false
+			}
+			
+			# Medida de esfuerzo metab�lico (por ejemplo Uchida2016)
+			EffortMeasure {
+				measure_type = SquaredMuscleActivation
+				weight = 0.2
+				minimize = true
+			}
+		}
+	}
+}

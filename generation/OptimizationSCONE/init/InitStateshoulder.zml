@@ -1,0 +1,10 @@
+values {
+	shoulder_elv = 1.35
+	elv_angle = 1.75
+	elbow_flexion = 0
+
+
+}
+velocities {
+}
+

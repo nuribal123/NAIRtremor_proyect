@@ -1,0 +1,322 @@
+import os
+from gym.envs.registration import register
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+#-----------------------------------------------------------------------------------------------------------------------
+register(id="arms_simulation",
+         entry_point="sconegym.armsgym:ArmsGym",
+         kwargs={
+             'model_file': 'D:/ingenieriabiomedica/CSICtesis/SegundaPrueba/AtrialARMscone2.scone',
+             'obs_type': '2D', #o 3d, es modo de observación
+             'left_leg_idxs': [3, 4, 5], #esto ns si se debería definir...
+             'right_leg_idxs': [6, 7, 8], #esto tampoco sé si se debería definir
+             'clip_actions': True, # esto no se sabe muy bien para qué es
+             'run': False, #...
+             'target_vel': 1.2, # realmente no tiene sentido
+             'leg_switch': False, #tampoco es que tenga sentido
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         }
+        )
+
+
+
+
+
+
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+# Walk Environments
+register(id="sconewalk_h0918-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H0918.scone',
+             'obs_type': '2D',
+             'left_leg_idxs': [3, 4, 5],
+             'right_leg_idxs': [6, 7, 8],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         }
+        )
+
+register(id="sconewalk_h0918_osim-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H0918_osim.scone',
+             'obs_type': '2D',
+             'left_leg_idxs': [3, 4, 5],
+             'right_leg_idxs': [6, 7, 8],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         }
+        )
+
+register(id="sconewalk_h1622-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H1622.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10],
+             'right_leg_idxs': [11, 12, 13, 14, 15],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         }
+        )
+
+register(id="sconewalk_h2190-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H2190.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10, 11],
+             'right_leg_idxs': [12, 13, 14, 15, 16, 17],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         },
+        )
+
+# Run Environments
+register(id="sconerun_h0918-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H0918_run.scone',
+             'obs_type': '2D',
+             'left_leg_idxs': [3, 4, 5],
+             'right_leg_idxs': [6, 7, 8],
+             'clip_actions': False,
+             'run': True,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": -10,
+             }
+         }
+        )
+
+register(id="sconerun_h1622-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H1622_run.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10],
+             'right_leg_idxs': [11, 12, 13, 14, 15],
+             'clip_actions': False,
+             'run': True,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": -10,
+             }
+         })
+
+register(id="sconerun_h2190-v1",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data-v1/H2190_run.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10, 11],
+             'right_leg_idxs': [12, 13, 14, 15, 16, 17],
+             'clip_actions': False,
+             'run': True,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": -10,
+             }
+         }
+        )
+
+# v0 Environments
+register(id="sconewalk_h0918-v0",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data/H0918.scone',
+             'obs_type': '2D',
+             'left_leg_idxs': [3, 4, 5],
+             'right_leg_idxs': [6, 7, 8],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         }
+        )
+
+register(id="sconewalk_h1622-v0",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data/H1622.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10],
+             'right_leg_idxs': [11, 12, 13, 14, 15],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         }
+        )
+
+register(id="sconewalk_h2190-v0",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data/H2190.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10, 11],
+             'right_leg_idxs': [12, 13, 14, 15, 16, 17],
+             'clip_actions': True,
+             'run': False,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": 0.0,
+             }
+         },
+        )
+
+register(id="sconerun_h0918-v0",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data/H0918_S2.scone',
+             'obs_type': '2D',
+             'left_leg_idxs': [3, 4, 5],
+             'right_leg_idxs': [6, 7, 8],
+             'clip_actions': False,
+             'run': True,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": -10,
+             }
+         }
+        )
+
+register(id="sconerun_h1622-v0",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data/H1622_S2.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10],
+             'right_leg_idxs': [11, 12, 13, 14, 15],
+             'clip_actions': False,
+             'run': True,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": -10,
+             }
+         })
+
+register(id="sconerun_h2190-v0",
+         entry_point="sconegym.gaitgym:GaitGym",
+         kwargs={
+             'model_file': curr_dir + '/data/H2190_S2.scone',
+             'obs_type': '3D',
+             'left_leg_idxs': [6, 7, 8, 9, 10, 11],
+             'right_leg_idxs': [12, 13, 14, 15, 16, 17],
+             'clip_actions': False,
+             'run': True,
+             'target_vel': 1.2,
+             'leg_switch': True,
+             'rew_keys':{
+                "vel_coeff": 10,
+                "grf_coeff": -0.07281,
+                "joint_limit_coeff": -0.1307,
+                "smooth_coeff": -0.097,
+                "nmuscle_coeff": -1.57929,
+                "self_contact_coeff": -10,
+             }
+         }
+        )

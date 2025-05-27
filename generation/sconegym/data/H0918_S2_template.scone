@@ -1,0 +1,11 @@
+ModelOpenSim4 {
+    model_file = D:/ingenieriabiomedica/CSICtesis/SegundaPrueba/MoBL_ARMS_module2_4_allmusclesLOCKparaOS51dof.osim
+    fixed_control_step_size = 0.005
+    initial_equilibration_activation = 0.05
+
+    ScriptController {
+        script_file = $LUA_PATH$
+    }
+    
+    << neural_delays_FEA_v4.zml >>
+}

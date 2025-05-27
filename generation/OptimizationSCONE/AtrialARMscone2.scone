@@ -1,0 +1,23 @@
+CmaOptimizer {
+	signature_prefix = DATE_TIME
+	max_generations = 100
+
+
+	SimulationObjective {
+		max_duration = 30 #era 30
+		#what is signature_postfix used for??
+
+		# Model used in simulation
+		ModelOpenSim4 {
+			model_file = D:/ingenieriabiomedica/CSICtesis/SegundaPrueba/opensim/MoBL_ARMS_module2_4_allmusclesLOCKparaOS4try.osim
+			state_init_file = init/InitStateshoulder.zml #está configurado el shoulder_elv y elv_angle
+			fixed_control_step_size = 0.005 # larger step sizes give better performance
+		}
+
+		ScriptController {script_file = C:\Users\balba\OneDrive\Documentos\SCONE\Tutorials\controllers\Matsuoka7.lua}
+
+		<< measures/TrialmeasureARM.scone >>
+
+	}
+}
+#PARA GRAFICAR EL ARCHIVO ESTÁ EN D:\ingenieriabiomedica\CSICtesis\SegundaPrueba\graficando.py
