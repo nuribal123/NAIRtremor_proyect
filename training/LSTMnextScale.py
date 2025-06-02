@@ -16,7 +16,7 @@ import joblib
 import json
 
 #----------NOMBRE DEL ARCHIVO----------
-name = "701515_120epochs_optunafullBIEN"
+name = "701515_epochs_optunafullBIEN"
 RESULTS_DIR = os.path.join("LSTMact7fullBIEN", name)
 PTH_DIR= f"LSTMpth/best_emg_model_seq_LSTM_{name}.pth"
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -25,9 +25,8 @@ DATA_PTH = r"D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinscon
 # ---------- NOTA EN RESULTS_DIR ----------
 
 nota = """
-Experimento LSTM - 701515_120epochs_optunafullBIEN
+Experimento LSTM - 701515_epochs_optunafullBIEN
 
-- CAMBIO: quitando el break de early stopping, se entrena hasta el final pero con 120 epochs
 - Datos: sim_data_MATSUOKA6_sinsconethingsBIEN
 - input_len=60, output_len=100, hidden_dim=50, num_layers=2, dropout=0.153
 - Optimizer: Adam, lr=0.001, batch_size=16, epochs=70, patience=10
@@ -237,7 +236,7 @@ for epoch in range(120):
             print(f"⏱️ Tiempo de entrenamiento: {elapsed_time:.2f} segundos")
             with open(os.path.join(RESULTS_DIR, "training_time.txt"), "w") as f:
                 f.write(f"Training time (s): {elapsed_time:.2f}")
-            #break
+            break
 
 # Guardando los datos para plots en otro file de las curvas de aprendizaje
 np.save(os.path.join(RESULTS_DIR, f"train_losses_{name}.npy"), np.array(train_losses))
