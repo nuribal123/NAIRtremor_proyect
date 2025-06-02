@@ -1,6 +1,7 @@
-# Correcciones para mostrar gráficas
+#File to plot the results from the GRU using the pth
+#Ensure the settings of the GRU are the same used in the training (number of layers, hidden dimensions, learning rate and )
 
-# Primero, asegúrate de importar todas las librerías necesarias
+
 import os
 import torch
 import numpy as np
