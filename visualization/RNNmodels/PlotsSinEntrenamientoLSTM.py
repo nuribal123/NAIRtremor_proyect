@@ -1,6 +1,7 @@
-# Correcciones para mostrar gráficas
+#File to plot the results from the LSTM using the pth
+#Ensure the settings of the LSTM are the same used in the training (number of layers, hidden dimensions, learning rate and )
 
-# Primero, asegúrate de importar todas las librerías necesarias
+
 import os
 import torch
 import numpy as np
@@ -18,29 +19,29 @@ import matplotlib as mpl
 import seaborn as sns
 import json
 
-# ----------- CONFIGURACIÓN GPU -----------
+# ----------- CONFIGURATION GPU -----------
 
 # Configuración de GPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Usando dispositivo: {device}")
 
-# ----------- EN FUNCIÓN DE LA LSTM -----------
+# ----------- CHANGE DEPENDING ON THE DIRECTORIES GIVEN FOR THE LSTM TRAINING -----------
 
 #name = "701515_200epochs_optunafullBIEN"
 name = "701515_LSTMact7guardandoentrena2_optunafullBIEN_condatatrain"
-run_name = "701515_LSTMplotsBIEN"  # Nombre de la ejecución para guardar resultados
+run_name = "701515_LSTMplotsBIEN"  # Name for the results to be saved
 RESULTS_DIR = os.path.join("LastResultsTRIALS", run_name)
 RESULTS_LSTM_DIR = os.path.join("LSTMact7fullBIEN", name)
 os.makedirs(RESULTS_DIR, exist_ok=True)
 PTH_DIR= f"LSTMpth/best_emg_model_seq_LSTM_{name}.pth"
 DATA_PTH = r"D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinsconethingsBIEN"
 
-# ---------------- ESTILO DE LAS GRÁFICAS -----------------
+# ---------------- GRAPH STYLES -----------------
 
-plt.style.use("seaborn-v0_8-paper")  # Probar 'seaborn-whitegrid', 'ggplot', 'bmh', etc.
-color = sns.color_palette("colorblind") #probar tab10, set2, colorblind
+plt.style.use("seaborn-v0_8-paper")  
+color = sns.color_palette("colorblind") 
 
-mpl.rcParams['font.size'] = 14  # Default text size
+mpl.rcParams['font.size'] = 14  
 mpl.rcParams['axes.titlesize'] = 16
 mpl.rcParams['axes.labelsize'] = 16
 mpl.rcParams['xtick.labelsize'] = 16
@@ -48,9 +49,9 @@ mpl.rcParams['ytick.labelsize'] = 16
 mpl.rcParams['legend.fontsize'] = 16
 mpl.rcParams['figure.titlesize'] = 14
 
-# ---------- CONFIGURACIÓN ----------
+# ---------- CONFIGURATION ----------
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Cambia el número según tu GPU
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Change the number depending on your GPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Usando dispositivo: {device}")
 torch.backends.cudnn.benchmark = True  # Mejora el rendimiento en GPUs con tamaño de batch fijo
@@ -60,11 +61,11 @@ if device.type == 'cuda':
     torch.cuda.manual_seed(42)  # Fija la semilla para reproducibilidad en GPU
     print("Usando GPU")
 
-# ---------- PARÁMETROS ----------
+# ---------- PARAMETERS ----------
 input_len = 60
 output_len = 100
 sequence_len = input_len + output_len
-batch_size = 16 #probar también con 16 y 64
+batch_size = 16
 
 #comprobar las configuraciones
 
