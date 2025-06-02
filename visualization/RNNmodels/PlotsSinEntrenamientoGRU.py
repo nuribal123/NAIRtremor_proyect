@@ -30,7 +30,7 @@ name = "701515_GRUact7guardandoentrena2_optunafullBIEN"
 run_name = "701515_GRUplotsBIEN"
 RESULTS_DIR = os.path.join("LastResults", run_name)
 RESULTS_GRU_DIR = os.path.join("GRUact7fullBIEN", name) #es el RESULTS_DIR que viene en GRUnextScale.py
-DATA_PTH = r"D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinsconethingsBIEN"
+DATA_PTH = "generation/data/data_replicate_processed"
 PTH_DIR= f"GRUpth/best_emg_model_seq_GRU_{name}.pth"
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
