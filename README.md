@@ -23,7 +23,7 @@ This project simulates, analyzes and predicts tremor parameters through two gati
 
 2. Clone the git repository 
 
-3. Create two different environments in Anaconda: one with the GPU.yml and one with opensim_scripting.yml
+3. Create two different environments in Anaconda: one with the GPU_env.yml and one with opensim_scripting_env.yml
 
 4. Run the folder "generations" with the environment created from opensim_scripting.yml and NAIRtremor_proyect with GPU.yml
 
