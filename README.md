@@ -6,7 +6,7 @@ This project simulates, analyzes and predicts tremor parameters through two gati
 
 ## Program Structure
 
-
+![Structure of the Project](other/structure.png)
 
 ## Workflow
 
