@@ -10,7 +10,7 @@ import pandas as pd
 
 # Ruta donde están los CSV 
 #csv_dir = "D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinsconethings_largoBIEN"  # o sim_data_B, etc.
-csv_dir = "D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinsconethings/simlargasinseg"
+csv_dir = "generation/data/data_replicate_raw"
 
 # Recorre todos los archivos en la carpeta
 for root, dirs, files in os.walk(csv_dir):
