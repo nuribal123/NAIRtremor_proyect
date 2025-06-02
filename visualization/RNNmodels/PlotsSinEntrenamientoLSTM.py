@@ -34,7 +34,7 @@ RESULTS_DIR = os.path.join("LastResultsTRIALS", run_name)
 RESULTS_LSTM_DIR = os.path.join("LSTMact7fullBIEN", name)
 os.makedirs(RESULTS_DIR, exist_ok=True)
 PTH_DIR= f"LSTMpth/best_emg_model_seq_LSTM_{name}.pth"
-DATA_PTH = r"D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinsconethingsBIEN"
+DATA_PTH = DATA_PTH = "generation/data/data_replicate_processed"
 
 # ---------------- GRAPH STYLES -----------------
 
