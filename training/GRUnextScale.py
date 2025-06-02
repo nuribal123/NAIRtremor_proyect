@@ -14,7 +14,7 @@ import joblib
 
 #----------NOMBRE DEL ARCHIVO----------
 #name = "GRUact7guardandoentrena2_optunafull" #'hidden_dim': 50, 'num_layers': 2, 'lr': 0.001, 'dropout_prob': 0.21780746778888038, 'batch_size': 16
-name = "701515_120epochs_optunafullBIEN" #hidden_dim: 50, num_layers = 2, lr: 0.001, dropout_prob: 0.1059629444 batch: 16
+name = "701515_epochs_optunafullBIEN" #hidden_dim: 50, num_layers = 2, lr: 0.001, dropout_prob: 0.1059629444 batch: 16
 RESULTS_DIR = os.path.join("GRUact7fullBIEN", name)
 PTH_DIR= f"GRUpth/best_emg_model_seq_GRU_{name}.pth"
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -25,7 +25,6 @@ DATA_PTH = r"D:/ingenieriabiomedica/sconeGym/sconegym/sim_data_MATSUOKA6_sinscon
 nota = """
 Experimento LSTM - 701515_LSTMact7guardandoentrena2_optunafullBIEN_condatatrain
 
-- CAMBIO: quitando el break de early stopping, se entrena hasta el final, pero se guarda el mejor modelo de early stopping (para graficar))
 - Datos: sim_data_MATSUOKA6_sinsconethingsBIEN
 - input_len=60, output_len=100, hidden_dim=50, num_layers=2, dropout=0.153
 - Optimizer: Adam, lr=0.001, batch_size=16, epochs=70, patience=10
@@ -236,7 +235,7 @@ for epoch in range(200):
             print(f"⏱️ Tiempo de entrenamiento: {elapsed_time:.2f} segundos")
             with open(os.path.join(RESULTS_DIR, "training_time.txt"), "w") as f:
                 f.write(f"Training time (s): {elapsed_time:.2f}")
-            #break
+            break
 
 # Guardando los datos para plots en otro file de las curvas de aprendizaje
 np.save(os.path.join(RESULTS_DIR, f"train_losses_{name}.npy"), np.array(train_losses))
