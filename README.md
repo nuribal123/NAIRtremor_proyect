@@ -8,11 +8,6 @@ This project simulates, analyzes and predicts tremor parameters through two gati
 
 ![Structure of the Project](other/structure.png)
 
-## Workflow
-
-
-
-
 ## Getting started
 
 1. The following software needs to be installed in your computer:
